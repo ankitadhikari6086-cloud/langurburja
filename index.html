@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Langur Burja – Dashain Special</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="garland" aria-hidden="true"></div>
+
+<template id="swing">
+<svg viewBox="0 0 120 210" class="swing" role="img" aria-label="Bamboo swing (Linge Ping)">
+  <g stroke="#7a5a1e" stroke-width="6" stroke-linecap="round">
+    <line x1="8" y1="206" x2="56" y2="10"/><line x1="112" y1="206" x2="64" y2="10"/>
+    <line x1="52" y1="10" x2="68" y2="10" stroke-width="9"/>
+  </g>
+  <g stroke="#3d2a0a" stroke-width="1.5"><line x1="30" y1="116" x2="90" y2="116"/></g>
+  <g class="seatgroup">
+    <line x1="52" y1="12" x2="48" y2="150" stroke="#c0392b" stroke-width="3"/>
+    <line x1="68" y1="12" x2="72" y2="150" stroke="#c0392b" stroke-width="3"/>
+    <rect x="40" y="148" width="40" height="7" rx="3" fill="#f6a712"/>
+    <!-- child on swing -->
+    <rect x="50" y="116" width="20" height="32" rx="8" fill="#d62828"/>
+    <circle cx="60" cy="106" r="11" fill="#e8b48a"/>
+    <path d="M49 106a11 11 0 0 1 22 0c-6-6-16-6-22 0Z" fill="#1d1d1d"/>
+    <circle cx="60" cy="101" r="2" fill="#e11d2e"/>
+    <path d="M52 124 46 138M68 124l6 14" stroke="#e8b48a" stroke-width="5" stroke-linecap="round"/>
+  </g>
+</svg>
+</template>
+
+<header>
+  <div class="swing-slot left" aria-hidden="false"></div>
+  <div class="title">
+    <p class="np">विजया दशमीको हार्दिक शुभकामना</p>
+    <h1>Langur Burja</h1>
+    <p class="sub">Happy <strong>Dashain</strong>! Roll six dice and see what luck brings this <strong>Bijaya Dashami</strong>.</p>
+  </div>
+  <div class="swing-slot right delay"></div>
+</header>
+
+<main>
+  <section class="board" id="board" aria-label="Dice board"></section>
+
+  <button id="rollBtn" class="roll">Roll the dice</button>
+  <p class="hint">Click a die, press the button, or hit Space.</p>
+
+  <section class="result" aria-live="polite">
+    <h2>This roll <span id="rollCount"></span></h2>
+    <ul id="tally"></ul>
+  </section>
+
+  <section class="legend">
+    <h2>The six faces</h2>
+    <ul id="legend"></ul>
+  </section>
+
+  <!-- <section class="blessing">
+    <h2>टिका र जमरा &nbsp;·&nbsp; <strong>Tika &amp; Jamara</strong></h2>
+    <p class="lead">On <strong>Bijaya Dashami</strong>, elders put <strong>Tika</strong> on our foreheads and place yellow <strong>Jamara</strong> on our heads with <strong>Ashirwad</strong> (blessings).</p>
+
+    <div class="scenes">
+      <figure>
+        <svg viewBox="0 0 240 190" role="img" aria-label="An elder putting tika on a young person's forehead">
+          <rect width="240" height="190" rx="18" fill="#fff4dc"/>
+          <circle cx="205" cy="32" r="18" fill="#f6a712" opacity=".55"/>
+          <!-- elder -->
+          <!-- <path d="M20 190c0-45 14-68 40-68s40 23 40 68Z" fill="#d62828"/>
+          <path d="M44 124 60 150 76 124Z" fill="#f6a712"/>
+          <circle cx="60" cy="96" r="22" fill="#e8b48a"/>
+          <path d="M37 94a23 23 0 0 1 46 0c-4-12-42-12-46 0Z" fill="#cfcfcf"/>
+          <circle cx="60" cy="86" r="3" fill="#e11d2e"/>
+          <circle cx="52" cy="97" r="2" fill="#2a0c0c"/><circle cx="68" cy="97" r="2" fill="#2a0c0c"/>
+          <path d="M52 108q8 6 16 0" stroke="#2a0c0c" stroke-width="2" fill="none"/>
+          <!-- elder arm to forehead -->
+          <!-- <path d="M92 138 C112 130 120 118 136 106" stroke="#e8b48a" stroke-width="9" stroke-linecap="round" fill="none"/>
+          <circle cx="138" cy="104" r="5" fill="#e11d2e"/> -->
+          <!-- young -->
+          <!-- <path d="M120 190c0-38 12-58 34-58s34 20 34 58Z" fill="#2f6fba"/>
+          <circle cx="154" cy="108" r="21" fill="#e8b48a"/>
+          <path d="M133 106a21 21 0 0 1 42 0c-6-11-36-11-42 0Z" fill="#1d1d1d"/>
+          <g stroke="#f6c80f" stroke-width="3" stroke-linecap="round"><path d="M142 88v-10M148 86v-14M154 85v-16M160 86v-13M166 88v-10"/></g>
+          <circle cx="154" cy="96" r="4" fill="#e11d2e"/>
+          <circle cx="147" cy="110" r="2" fill="#2a0c0c"/><circle cx="161" cy="110" r="2" fill="#2a0c0c"/>
+          <path d="M147 119q7 5 14 0" stroke="#2a0c0c" stroke-width="2" fill="none"/> -->
+          <!-- thaal -->
+          <!-- <ellipse cx="108" cy="178" rx="30" ry="8" fill="#f6a712" stroke="#a86a00" stroke-width="2"/>
+          <ellipse cx="108" cy="173" rx="9" ry="4" fill="#e11d2e"/>
+          <g stroke="#f6c80f" stroke-width="2.5" stroke-linecap="round"><path d="M92 172l-3-10M98 170l-1-12M120 170l2-12M126 172l4-10"/></g>
+        </svg>
+        <figcaption><strong>टिका लगाउँदै</strong><br>Receiving <strong>Tika</strong></figcaption>
+      </figure>
+
+      <figure>
+        <svg viewBox="0 0 240 190" role="img" aria-label="An elder blessing a young person with jamara">
+          <rect width="240" height="190" rx="18" fill="#fff4dc"/>
+          <g fill="#f6a712"><path d="M120 14l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/><path d="M40 40l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/><path d="M205 52l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/></g>
+          elder (grandfather) -->
+          <!-- <path d="M18 190c0-46 14-70 42-70s42 24 42 70Z" fill="#8d2a1f"/>
+          <circle cx="60" cy="92" r="22" fill="#e8b48a"/>
+          <path d="M38 88a22 22 0 0 1 44 0c-4-10-40-10-44 0Z" fill="#e0e0e0"/>
+          <path d="M44 106q16 22 32 0q-16 6-32 0Z" fill="#e0e0e0"/>
+          <circle cx="60" cy="82" r="3" fill="#e11d2e"/>
+          <circle cx="52" cy="93" r="2" fill="#2a0c0c"/><circle cx="68" cy="93" r="2" fill="#2a0c0c"/> -->
+          <!-- blessing hand raised over young person -->
+          <!-- <path d="M96 138 C118 132 130 118 150 74" stroke="#e8b48a" stroke-width="9" stroke-linecap="round" fill="none"/>
+          <ellipse cx="152" cy="68" rx="9" ry="6" fill="#e8b48a"/> -->
+          <!-- young bowing -->
+          <!-- <path d="M120 190c0-34 14-52 36-52s36 18 36 52Z" fill="#c2185b"/>
+          <circle cx="158" cy="122" r="20" fill="#e8b48a"/>
+          <path d="M138 124a20 20 0 0 1 40-8c0 0-14-14-40 8Z" fill="#1d1d1d"/>
+          <path d="M138 118a20 20 0 0 1 40 0c-6-12-34-12-40 0Z" fill="#1d1d1d"/>
+          <g stroke="#f6c80f" stroke-width="3" stroke-linecap="round"><path d="M146 100v-10M152 98v-14M158 97v-16M164 98v-13M170 100v-10"/></g>
+          <circle cx="158" cy="112" r="3.5" fill="#e11d2e"/>
+          <circle cx="151" cy="126" r="2" fill="#2a0c0c"/><circle cx="165" cy="126" r="2" fill="#2a0c0c"/>
+          <path d="M152 134q6 4 12 0" stroke="#2a0c0c" stroke-width="2" fill="none"/>
+          <g fill="#f6a712"><circle cx="196" cy="150" r="3"/><circle cx="210" cy="138" r="2"/><circle cx="26" cy="60" r="2.5"/></g>
+        </svg>
+        <figcaption><strong>आशीर्वाद</strong><br>Receiving <strong>Ashirwad</strong></figcaption>
+      </figure>
+    </div> --> --> -->
+
+    <p class="wish"><strong>"दीर्घायु होऊ, सुखी र समृद्ध होऊ!"</strong><br>
+    <span>May you live long, be happy and prosper.</span></p>
+  </section>
+</main>
+
+<div class="garland bottom" aria-hidden="true"></div>
+<footer>
+  <p><strong>शुभ दशैं</strong> • <strong>Subha Dashain</strong> • Play for fun and with family blessings</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // place bamboo swings (Linge Ping) beside the title
+  document.querySelectorAll('.swing-slot').forEach(s =>
+    s.appendChild(document.getElementById('swing').content.cloneNode(true)));
+</script>
+</body>
+</html>
